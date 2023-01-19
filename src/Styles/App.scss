@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&family=Saira+Condensed:wght@100;200;300;400;500;600&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background: rgb(0, 0, 0, 0.93);
+    color: rgb(231, 226, 226);
+    font-family: 'Saira Condensed', sans-serif;
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px 50px 10px 50px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgb(18, 18, 18);
+        z-index: 99;
+
+        h1{
+            font-size: 2em;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+        }
+
+        div{
+            margin-top: 10px;
+        }
+    }
+
+    .Journal{
+        .input_section{
+            display: grid;
+            grid-column-gap: 10px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 150px 0 50px 0;
+
+            .input_area{
+                padding: 10px 13px;
+                border-radius: 15px;
+                background: rgb(0, 0, 0, 0.2);
+                box-shadow: 1px 1px 4px #000, 1px 1px 4px #000 inset;
+                margin-bottom: 10px;
+                position: relative;
+                
+
+                a{
+                    text-decoration: none;
+                    color: rgb(231, 226, 226);
+
+                    p{
+                        font-weight: 400;
+                        line-height: 30px;
+    
+                        span{
+                            font-size: 2.8em;
+                            line-height: 0;
+                        }
+                    }
+
+                    h3{
+                        padding-bottom: 5px;
+                        font-weight: 600;
+                    }
+                }
+
+                .hidden_flex{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px;
+                    background: rgb(14, 14, 14);
+                    position: absolute;
+                    bottom: -1px;
+                    left: 0;
+                    width: 100%;
+                    border-radius:0 0 15px 15px;
+                    display: none;
+
+                    .hidden_img{
+                        width: 70%;
+                        display: flex;
+                        gap: 7px;
+                    }
+
+                    button{
+                        background: #ff244c;
+                        color: #fff;
+                        border: none;
+                        font-weight: 100;
+                        padding: 3px 8px;
+                        border-radius: 3px;
+                    }
+                }
+
+                &:hover{
+                    //background: rgb(0, 0, 0, 0.6);
+
+                    .hidden_flex{
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        .add_journal{
+           
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+
+            a{
+                background: #ff244c;
+                padding:0 20px 5px 20px;
+                border-radius: 10px;
+                font-size: 2em;
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
+
+    .Create{
+        width: 90%;
+        margin: 0 auto;
+        box-shadow: 1px 1px 4px #000, 1px 1px 4px #000 inset;
+        border-radius: 10px;
+        margin-top: 150px;
+
+        input, textarea{
+            width: 100%;
+            resize: none;
+            outline: none;
+            padding: 10px;
+            font-family: 'Saira Condensed', sans-serif;
+            font-size: 1em;
+            border: none;
+            background: none;
+            color: #fff;
+            font-weight: 200;
+
+            &::placeholder{
+                color: #c1baba;
+            }
+        }
+
+        input{
+            height: 40px;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        button{
+            position: absolute;
+            right: 7%;
+            bottom: 8.5%;
+            padding:5px 20px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background: rgb(255, 34, 74);
+            font-family: 'Saira Condensed', sans-serif;
+            font-size: 1em;
+
+            &:hover{
+                background: rgb(235, 76, 105);
+            }
+        }
+    }
+
+    .Note{
+        width: 90%;
+        margin: 0 auto;
+        box-shadow: 1px 1px 4px #000, 1px 1px 4px #000 inset;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 70px;
+        margin-top: 150px;
+
+        div{
+            h3{
+                margin-bottom: 10px;
+            }
+
+            p{
+                line-height: 30px;
+            }
+
+            button{
+                position: fixed;
+                right: 20%;
+                top: 9%;
+                padding:5px 20px;
+                border: none;
+                border-radius: 5px;
+                color: #fff;
+                background: #ff224a;
+                font-family: 'Saira Condensed', sans-serif;
+                font-size: 1em;
+                text-decoration: none;
+                z-index: 99;
+
+                &:hover{
+                    background: rgb(235, 76, 105);
+                }
+            }
+        }
+    }
+}
+
+.bodyy{
+    background: #fff;
+    color: rgb(0, 0, 0, 0.7);
+    font-family: 'Roboto', sans-serif;
+
+    nav{
+        background: #fff;
+    }
+
+    .Journal{
+        .input_section{
+            .input_area{
+                background: none;
+                box-shadow: none;
+                border: 1px solid rgb(0, 0, 0, 0.2);
+
+                p{
+                    font-weight: 400;
+                    font-size: 0.9em;
+                    line-height: 23px;
+                    color: rgb(0, 0, 0, 0.8);
+                }
+
+                h3{
+                    font-weight: 500;
+                    color: rgb(0, 0, 0, 0.8);
+                    font-size: 1.05em;
+                }
+
+                &:hover{
+                    background: none;
+                    box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.3), 1px 1px 2px rgb(0, 0, 0, 0.3) inset;
+                }
+
+                .hidden_flex{
+                    background: #fff;
+
+                    // .hidden_img{
+                    //     .change_font{
+                    //         display: none;
+                    //     }
+                    // }
+                }
+            }
+        }
+
+        .add_journal{
+            font-family: 'Saira Condensed', sans-serif;
+        }
+    }
+
+    .Create{
+        border: 1px solid rgb(0, 0, 0, 0.2);
+        box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.3), 1px 1px 2px rgb(0, 0, 0, 0.3) inset;
+        transition: 0.2s;
+
+        input, textarea{
+            background:none;
+            color: rgb(0, 0, 0, 0.8);
+
+            &::placeholder{
+                color: rgb(0, 0, 0, 0.8);
+            }
+        }
+    }
+
+    .Note{
+        background: none;
+        box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.3), 1px 1px 2px rgb(0, 0, 0, 0.3) inset;
+
+        p{
+            line-height: 27px;
+            font-size: 0.95em;
+        }
+
+        h3{
+            font-weight: 500;
+            font-size: 1em;
+        }
+    }
+}
+
+@media screen and (min-width: 370px) {
+    body{
+        .Journal{
+            .input_section{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    body{
+        .Journal{
+            .input_section{
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 900px) {
+    body{
+        .Journal{
+            .input_section{
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    }
+}
