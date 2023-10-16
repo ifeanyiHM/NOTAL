@@ -9,40 +9,116 @@ body {
   background: rgba(0, 0, 0, 0.93);
   color: rgb(231, 226, 226);
   font-family: "Saira Condensed", sans-serif;
+  transition: all 0.5s;
 }
 body nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 50px 50px 10px 50px;
+  padding: 12px 20px 12px 35px;
   position: fixed;
-  top: 0;
-  width: 100%;
+  top: 10px;
+  left: 3%;
+  width: 94%;
   background: rgb(18, 18, 18);
   z-index: 99;
+  border-radius: 30px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7), 1px 1px 4px rgba(0, 0, 0, 0.7) inset;
 }
-body nav h1 {
-  font-size: 2em;
-  font-family: "Roboto", sans-serif;
+body nav a {
+  font-size: 0.8em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 500;
+  letter-spacing: 3px;
+  height: 20px;
+  width: 75px;
+  line-height: 20px;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  padding-left: 5px;
 }
-body nav div {
-  margin-top: 10px;
+body nav a:before {
+  content: "";
+  position: absolute;
+  height: 40px;
+  width: 75px;
+  top: -8px;
+  left: 0px;
+  border-left: 2px solid #ff244c;
+  border-right: 2px solid white;
+  transition: all 1s;
+}
+body nav a:after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 95px;
+  top: 0px;
+  left: -8px;
+  border-top: 2px solid #ff244c;
+  border-bottom: 2px solid white;
+  transition: all 1s;
+}
+body nav a span {
+  color: #ff244c;
+  font-size: 1rem;
+  font-weight: bold;
+}
+body nav a:hover:before {
+  transform: rotateY(180deg);
+}
+body nav a:hover:after {
+  transform: rotateX(180deg);
+}
+body nav .search {
+  width: 50%;
+  height: 1.8rem;
+  padding-left: 0.5rem;
+  outline: none;
+  background: #d1cbcb;
+  border: none;
+  border-radius: 15px;
+  color: #282727;
+  transition: all 0.5s;
+}
+body nav .search:focus {
+  border: 2px solid #ff244c;
+}
+body nav div span {
+  display: block;
+  font-size: 1.1rem;
+  cursor: pointer;
+  animation: rotate 20s infinite linear;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+body .Journal {
+  transition: all 0.5s;
 }
 body .Journal .input_section {
-  display: grid;
   grid-column-gap: 10px;
   width: 90%;
   margin: 0 auto;
-  padding: 150px 0 50px 0;
+  padding: 105px 0 50px 0;
 }
 body .Journal .input_section .input_area {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
   padding: 10px 13px;
   border-radius: 15px;
   background: rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 4px #000, 1px 1px 4px #000 inset;
   margin-bottom: 10px;
   position: relative;
+  transition: all 0.5s 0.3s;
 }
 body .Journal .input_section .input_area a {
   text-decoration: none;
@@ -72,11 +148,18 @@ body .Journal .input_section .input_area .hidden_flex {
   width: 100%;
   border-radius: 0 0 15px 15px;
   display: none;
+  cursor: pointer;
+  z-index: 10;
 }
 body .Journal .input_section .input_area .hidden_flex .hidden_img {
   width: 70%;
   display: flex;
   gap: 7px;
+}
+body .Journal .input_section .input_area .hidden_flex .hidden_img span {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
 }
 body .Journal .input_section .input_area .hidden_flex button {
   background: #ff244c;
@@ -86,8 +169,17 @@ body .Journal .input_section .input_area .hidden_flex button {
   padding: 3px 8px;
   border-radius: 3px;
 }
+body .Journal .input_section .input_area:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
 body .Journal .input_section .input_area:hover .hidden_flex {
   display: flex;
+}
+body .Journal .input_section .input_area1 {
+  box-shadow: 1px 1px 4px #000, 1px 1px 4px #000 inset;
+}
+body .Journal .input_section .input_area2 {
+  box-shadow: none;
 }
 body .Journal .add_journal {
   position: fixed;
@@ -107,9 +199,11 @@ body .Create {
   margin: 0 auto;
   box-shadow: 1px 1px 4px #000, 1px 1px 4px #000 inset;
   border-radius: 10px;
-  margin-top: 150px;
+  margin-top: 105px;
+  transition: all 0.5s;
 }
-body .Create input, body .Create textarea {
+body .Create input,
+body .Create textarea {
   width: 100%;
   resize: none;
   outline: none;
@@ -124,10 +218,8 @@ body .Create input, body .Create textarea {
 body .Create input::-moz-placeholder, body .Create textarea::-moz-placeholder {
   color: #c1baba;
 }
-body .Create input:-ms-input-placeholder, body .Create textarea:-ms-input-placeholder {
-  color: #c1baba;
-}
-body .Create input::placeholder, body .Create textarea::placeholder {
+body .Create input::placeholder,
+body .Create textarea::placeholder {
   color: #c1baba;
 }
 body .Create input {
@@ -135,19 +227,21 @@ body .Create input {
   font-size: 1.1em;
   font-weight: 500;
 }
-body .Create button {
-  position: absolute;
-  right: 7%;
-  bottom: 8.5%;
+body .Create .button {
+  text-align: end;
+}
+body .Create .button button {
   padding: 5px 20px;
   border: none;
   border-radius: 5px;
-  color: #fff;
-  background: rgb(255, 34, 74);
+  background: #ff224a;
   font-family: "Saira Condensed", sans-serif;
   font-size: 1em;
+  text-decoration: none;
+  color: #fff;
+  margin: 0 1rem 1rem 0;
 }
-body .Create button:hover {
+body .Create .button button:hover {
   background: rgb(235, 76, 105);
 }
 body .Note {
@@ -157,7 +251,8 @@ body .Note {
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 70px;
-  margin-top: 150px;
+  margin-top: 105px;
+  transition: all 0.5s;
 }
 body .Note div h3 {
   margin-bottom: 10px;
@@ -165,105 +260,231 @@ body .Note div h3 {
 body .Note div p {
   line-height: 30px;
 }
-body .Note div button {
-  position: fixed;
-  right: 20%;
-  top: 9%;
+body .Note div .button {
+  text-align: end;
+}
+body .Note div .button button {
   padding: 5px 20px;
   border: none;
   border-radius: 5px;
-  color: #fff;
   background: #ff224a;
   font-family: "Saira Condensed", sans-serif;
   font-size: 1em;
-  text-decoration: none;
-  z-index: 99;
 }
-body .Note div button:hover {
+body .Note div .button button a {
+  text-decoration: none;
+  color: #fff;
+}
+body .Note div .button button:hover {
   background: rgb(235, 76, 105);
 }
 
-.bodyy {
-  background: #fff;
-  color: rgba(0, 0, 0, 0.7);
+.light-mode {
+  background: #fed656;
+  color: rgba(0, 0, 0, 0.5);
   font-family: "Roboto", sans-serif;
+  transition: all 0.5s;
 }
-.bodyy nav {
-  background: #fff;
+.light-mode nav {
+  background: #fed656;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2), 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
+  transition: all 0.5s;
 }
-.bodyy .Journal .input_section .input_area {
+.light-mode .Journal {
+  transition: all 0.5s;
+}
+.light-mode .Journal .input_section .input_area {
   background: none;
-  box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 }
-.bodyy .Journal .input_section .input_area p {
+.light-mode .Journal .input_section .input_area p {
   font-weight: 400;
   font-size: 0.9em;
   line-height: 23px;
   color: rgba(0, 0, 0, 0.8);
 }
-.bodyy .Journal .input_section .input_area h3 {
+.light-mode .Journal .input_section .input_area h3 {
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.6);
   font-size: 1.05em;
 }
-.bodyy .Journal .input_section .input_area:hover {
+.light-mode .Journal .input_section .input_area:hover {
   background: none;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 1px 1px 2px rgba(0, 0, 0, 0.3) inset;
 }
-.bodyy .Journal .input_section .input_area .hidden_flex {
+.light-mode .Journal .input_section .input_area .hidden_flex {
   background: #fff;
   bottom: 1px;
   left: 1px;
   right: 1px;
-  width: 99.6%;
+  width: 99.4%;
 }
-.bodyy .Journal .add_journal {
+.light-mode .Journal .input_section .input_area1 {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2), 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
+}
+.light-mode .Journal .input_section .input_area2 {
+  box-shadow: none;
+}
+.light-mode .Journal .add_journal {
   font-family: "Saira Condensed", sans-serif;
 }
-.bodyy .Create {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 1px 1px 2px rgba(0, 0, 0, 0.3) inset;
-  transition: 0.2s;
+.light-mode .Create {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2), 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
+  transition: all 0.5s;
 }
-.bodyy .Create input, .bodyy .Create textarea {
+.light-mode .Create input,
+.light-mode .Create textarea {
   background: none;
   color: rgba(0, 0, 0, 0.8);
 }
-.bodyy .Create input::-moz-placeholder, .bodyy .Create textarea::-moz-placeholder {
+.light-mode .Create input::-moz-placeholder, .light-mode .Create textarea::-moz-placeholder {
   color: rgba(0, 0, 0, 0.8);
 }
-.bodyy .Create input:-ms-input-placeholder, .bodyy .Create textarea:-ms-input-placeholder {
+.light-mode .Create input::placeholder,
+.light-mode .Create textarea::placeholder {
   color: rgba(0, 0, 0, 0.8);
 }
-.bodyy .Create input::placeholder, .bodyy .Create textarea::placeholder {
-  color: rgba(0, 0, 0, 0.8);
-}
-.bodyy .Note {
+.light-mode .Note {
   background: none;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 1px 1px 2px rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2), 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
+  transition: all 0.5s;
 }
-.bodyy .Note p {
+.light-mode .Note p {
   line-height: 27px;
   font-size: 0.95em;
 }
-.bodyy .Note h3 {
+.light-mode .Note h3 {
   font-weight: 500;
   font-size: 1em;
 }
 
 @media screen and (min-width: 370px) {
   body .Journal .input_section {
-    grid-template-columns: repeat(2, 1fr);
+    -moz-columns: 2;
+         columns: 2;
+  }
+  body .Journal .input_section .input_area .hidden_flex .hidden_img {
+    gap: 0.3rem;
+  }
+  body .Journal .input_section .input_area .hidden_flex .hidden_img span {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+  body .Journal .input_section .input_area .hidden_flex button {
+    padding: 0.1rem 0.3rem;
+    font-size: 0.5rem;
   }
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 523px) {
+  body .Journal .input_section .input_area .hidden_flex .hidden_img {
+    gap: 0.7rem;
+  }
+  body .Journal .input_section .input_area .hidden_flex .hidden_img span {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  body .Journal .input_section .input_area .hidden_flex button {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+@media screen and (min-width: 700px) {
+  body nav {
+    padding: 15px 20px 15px 35px;
+  }
+  body nav a {
+    font-size: 1em;
+    height: 30px;
+    width: 85px;
+    line-height: 30px;
+  }
+  body nav a:before {
+    height: 50px;
+    width: 85px;
+  }
+  body nav a:after {
+    height: 30px;
+    width: 105px;
+  }
+  body nav a span {
+    font-size: 1.2rem;
+  }
+  body nav .search {
+    width: 70%;
+    height: 2.5rem;
+  }
+  body nav div span {
+    font-size: 1.4rem;
+  }
   body .Journal .input_section {
-    grid-template-columns: repeat(3, 1fr);
+    -moz-columns: 3;
+         columns: 3;
+  }
+  body .Journal .input_section .input_area .hidden_flex .hidden_img {
+    gap: 0.5rem;
+  }
+  body .Journal .input_section .input_area .hidden_flex .hidden_img span {
+    width: 1rem;
+    height: 1rem;
+  }
+  body .Journal .input_section button {
+    padding: 0.1rem 0.4rem;
+    font-size: 0.6rem;
   }
 }
 @media screen and (min-width: 900px) {
+  body nav .search {
+    margin-left: 10rem;
+    width: 60%;
+  }
   body .Journal .input_section {
-    grid-template-columns: repeat(4, 1fr);
+    -moz-columns: 4;
+         columns: 4;
+  }
+  body .Journal .input_section .input_area .hidden_flex .hidden_img {
+    gap: 0.3rem;
+  }
+}
+@media screen and (min-width: 1100px) {
+  body nav .search {
+    margin-left: 15rem;
+  }
+  body .Journal .input_section {
+    -moz-columns: 5;
+         columns: 5;
+  }
+}
+@media screen and (min-width: 1300px) {
+  body nav .search {
+    margin-left: 20rem;
+  }
+  body .Journal .input_section {
+    -moz-columns: 6;
+         columns: 6;
+  }
+}
+@media screen and (min-width: 1500px) {
+  body nav .search {
+    margin-left: 25rem;
+  }
+  body .Journal .input_section {
+    -moz-columns: 7;
+         columns: 7;
+  }
+}
+@media screen and (min-width: 1700px) {
+  body nav .search {
+    margin-left: 30rem;
+  }
+  body .Journal .input_section {
+    -moz-columns: 8;
+         columns: 8;
+  }
+}
+@media screen and (min-width: 1900px) {
+  body nav .search {
+    margin-left: 35rem;
+  }
+  body .Journal .input_section {
+    -moz-columns: 9;
+         columns: 9;
   }
 }/*# sourceMappingURL=App.css.map */
