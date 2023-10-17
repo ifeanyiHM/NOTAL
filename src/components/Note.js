@@ -1,7 +1,10 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
+import { NoteContext } from "../App";
 
-const Note = ({ selectedNote }) => {
+const Note = () => {
+  const { selectedNote } = useContext(NoteContext);
+
   const history = useHistory();
 
   useEffect(() => {

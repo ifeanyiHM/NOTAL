@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import { NoteContext } from "../App";
 
 import { color } from "../components/Data";
 import { ColorPallet } from "./ColorPallet";
 
 //Each note or journal taken
-export const EachNote = ({ journ, onDeleteJournal, onSelection }) => {
+export const EachNote = ({ journ }) => {
+  const { onSelection } = useContext(NoteContext);
+
   const [bgColor, setBgColor] = useState("");
   const [textColor, setTextColor] = useState("");
   const [bgShadow, setBgShadow] = useState(true);
@@ -38,12 +41,7 @@ export const EachNote = ({ journ, onDeleteJournal, onSelection }) => {
         </p>
       </Link>
 
-      <ColorPallet
-        color={color}
-        onStyleNote={handleNoteStyle}
-        onDeleteJournal={onDeleteJournal}
-        journ={journ}
-      />
+      <ColorPallet color={color} onStyleNote={handleNoteStyle} journ={journ} />
     </div>
   );
 };

@@ -1,4 +1,9 @@
-function SearchJournal({ searchNote, dispatch }) {
+import { useContext } from "react";
+import { NoteContext } from "../App";
+
+function SearchJournal() {
+  const { searchNote, dispatch } = useContext(NoteContext);
+
   return (
     <input
       className="search"

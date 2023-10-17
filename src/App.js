@@ -1,6 +1,6 @@
-import { useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import useBrowserStorage from "./custom_hook/useBrowserStorage";
+import useBrowserStorage from "./custom_api/useBrowserStorage";
 
 import Journal from "./journal_component/Journal";
 import Create from "./components/Create";
@@ -36,6 +36,8 @@ const reducer = (state, action) => {
       break;
   }
 };
+
+export const NoteContext = createContext();
 
 function App() {
   const [journal, setJournal] = useBrowserStorage(jour);
@@ -78,35 +80,39 @@ function App() {
   }
 
   return (
-    <Router>
-      <div>
-        <Navbar
-          handleClick={handleClick}
-          open={open}
-          searchNote={searchNote}
-          dispatch={dispatch}
-        />
+    <NoteContext.Provider
+      value={{
+        handleClick,
+        open,
+        searchNote,
+        dispatch,
+        journal: searchedJournal,
+        onDeleteJournal: deleteJournal,
+        onSelection: handleSelection,
+        selectedNote,
+        onAddJournal: addJournal,
+      }}
+    >
+      <Router>
+        <div>
+          <Navbar />
 
-        <Switch>
-          <Route exact path="/">
-            <Journal
-              journal={searchedJournal}
-              onDeleteJournal={deleteJournal}
-              onSelection={handleSelection}
-              selectedNote={selectedNote}
-            />
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <Journal />
+            </Route>
 
-          <Route exact path="/create">
-            <Create onAddJournal={addJournal} />
-          </Route>
+            <Route exact path="/create">
+              <Create />
+            </Route>
 
-          <Route exact path="/note">
-            <Note selectedNote={selectedNote} />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+            <Route exact path="/note">
+              <Note />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </NoteContext.Provider>
   );
 }
 

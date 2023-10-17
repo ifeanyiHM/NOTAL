@@ -1,6 +1,9 @@
-//Material UI and styliong of each note or journal
+import { useContext } from "react";
+import { NoteContext } from "../App";
 
-export const ColorPallet = ({ color, onStyleNote, onDeleteJournal, journ }) => {
+export const ColorPallet = ({ color, onStyleNote, journ }) => {
+  const { onDeleteJournal } = useContext(NoteContext);
+
   return (
     <div className="hidden_flex">
       <div className="hidden_img">

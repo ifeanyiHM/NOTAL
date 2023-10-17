@@ -1,7 +1,10 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { NoteContext } from "../App";
 
-const Create = ({ onAddJournal }) => {
+const Create = () => {
+  const { onAddJournal } = useContext(NoteContext);
+
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
