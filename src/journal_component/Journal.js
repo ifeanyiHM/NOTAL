@@ -1,23 +1,30 @@
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { Link } from "react-router-dom";
 import { EachNote } from "./EachNote";
-import { useContext } from "react";
-import { NoteContext } from "../App";
+import { useNote } from "../context/NoteContext";
+import Navbar from "../components/Navbar";
+import SearchJournal from "../components/SearchJournal";
 
 //Overall Journal UI
 const Journal = () => {
-  const { journal } = useContext(NoteContext);
+  const { journal } = useNote();
   return (
-    <div className="Journal">
-      <div className="input_section">
-        {journal.map((journ) => (
-          <EachNote key={journ.id} journ={journ} />
-        ))}
-      </div>
+    <>
+      <Navbar>
+        <SearchJournal />
+      </Navbar>
 
-      <div className="add_journal">
-        <Link to="create">+</Link>
+      <div className="Journal">
+        <div className="input_section">
+          {journal.map((journ) => (
+            <EachNote key={journ.id} journ={journ} />
+          ))}
+        </div>
+
+        <div className="add_journal">
+          <Link to="create">+</Link>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

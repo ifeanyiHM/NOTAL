@@ -118,6 +118,31 @@ body {
     }
   }
 
+  .spinner-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+    .spinner {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      margin-bottom: 10rem;
+
+      background: conic-gradient(#0000 10%, #ff244c);
+      mask: radial-gradient(farthest-side, #0000 calc(100% - 2px), #000 0);
+      animation: rotate 1.5s infinite linear;
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(1turn);
+      }
+    }
+  }
+
   .Journal {
     transition: all 0.5s;
 
@@ -424,6 +449,14 @@ body {
 
 @media screen and (min-width: 370px) {
   body {
+    .spinner-container {
+      .spinner {
+        width: 2rem;
+        height: 2rem;
+
+        mask: radial-gradient(farthest-side, #0000 calc(100% - 3px), #000 0);
+      }
+    }
     .Journal .input_section {
       columns: 2;
 
@@ -448,6 +481,15 @@ body {
 
 @media screen and (min-width: 523px) {
   body {
+    .spinner-container {
+      .spinner {
+        width: 3rem;
+        height: 3rem;
+
+        mask: radial-gradient(farthest-side, #0000 calc(100% - 4px), #000 0);
+      }
+    }
+
     .Journal .input_section .input_area .hidden_flex {
       .hidden_img {
         gap: 0.7rem;
@@ -561,6 +603,15 @@ body {
 }
 @media screen and (min-width: 1500px) {
   body {
+    .spinner-container {
+      .spinner {
+        width: 5rem;
+        height: 5rem;
+
+        mask: radial-gradient(farthest-side, #0000 calc(100% - 6px), #000 0);
+      }
+    }
+
     nav .search {
       margin-left: 25rem;
     }

@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom/cjs/react-router-dom";
-import SearchJournal from "./SearchJournal";
-import { useContext } from "react";
-import { NoteContext } from "../App";
+import { Link } from "react-router-dom";
+import { useNote } from "../context/NoteContext";
 
-const Navbar = () => {
-  const { open, handleClick } = useContext(NoteContext);
+const Navbar = ({ children }) => {
+  const { open, handleClick } = useNote();
 
   return (
     <nav>
@@ -12,7 +10,7 @@ const Navbar = () => {
         not<span>a</span>l
       </Link>
 
-      <SearchJournal />
+      {children}
 
       <div onClick={handleClick}>{open ? <span>☀</span> : <span>🌘</span>}</div>
     </nav>

@@ -1,13 +1,13 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom";
-import { NoteContext } from "../App";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNote } from "../context/NoteContext";
 
-import { color } from "../components/Data";
+import { color } from "../data/Data";
 import { ColorPallet } from "./ColorPallet";
 
 //Each note or journal taken
 export const EachNote = ({ journ }) => {
-  const { onSelection } = useContext(NoteContext);
+  const { onSelection } = useNote();
 
   const [bgColor, setBgColor] = useState("");
   const [textColor, setTextColor] = useState("");

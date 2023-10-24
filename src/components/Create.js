@@ -1,14 +1,15 @@
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useState, useEffect, useContext } from "react";
-import { NoteContext } from "../App";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNote } from "../context/NoteContext";
+import Navbar from "./Navbar";
 
 const Create = () => {
-  const { onAddJournal } = useContext(NoteContext);
+  const { onAddJournal } = useNote();
 
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
-  const history = useHistory();
+  const navigation = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,13 +21,13 @@ const Create = () => {
 
     onAddJournal(note);
 
-    history.push("/");
+    navigation("/");
   };
 
   useEffect(() => {
     function returnCall(e) {
       if (e.code === "Escape") {
-        history.push("/");
+        navigation("/");
       }
     }
     document.addEventListener("keydown", returnCall);
@@ -34,34 +35,38 @@ const Create = () => {
     return () => {
       document.removeEventListener("keydown", returnCall);
     };
-  }, [history]);
+  }, [navigation]);
 
   return (
-    <div className="Create">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Title"
-          maxLength="70"
-          autoFocus
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <br />
+    <>
+      <Navbar />
 
-        <textarea
-          cols="30"
-          rows="15"
-          placeholder="Take a note..."
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-        ></textarea>
+      <div className="Create">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Title"
+            maxLength="70"
+            autoFocus
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <br />
 
-        <div className="button">
-          <button>close</button>
-        </div>
-      </form>
-    </div>
+          <textarea
+            cols="30"
+            rows="15"
+            placeholder="Take a note..."
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+          ></textarea>
+
+          <div className="button">
+            <button>close</button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 

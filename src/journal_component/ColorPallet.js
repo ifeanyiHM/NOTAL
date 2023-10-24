@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { NoteContext } from "../App";
+import { useNote } from "../context/NoteContext";
 
 export const ColorPallet = ({ color, onStyleNote, journ }) => {
-  const { onDeleteJournal } = useContext(NoteContext);
+  const { onDeleteJournal } = useNote();
 
   return (
     <div className="hidden_flex">

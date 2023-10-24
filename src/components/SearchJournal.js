@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { NoteContext } from "../App";
+import { useNote } from "../context/NoteContext";
 
 function SearchJournal() {
-  const { searchNote, dispatch } = useContext(NoteContext);
+  const { searchNote, dispatch } = useNote();
 
   return (
     <input
