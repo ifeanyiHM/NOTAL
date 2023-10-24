@@ -418,10 +418,7 @@ body .invalid-page a {
   body .Journal .input_section {
     -moz-columns: 2;
          columns: 2;
-    gap: 20px;
-  }
-  body .Journal .input_section .input_area {
-    margin-bottom: 20px;
+    gap: 10px;
   }
   body .Journal .input_section .input_area .hidden_flex .hidden_img {
     gap: 0.3rem;
@@ -485,10 +482,6 @@ body .invalid-page a {
   body .Journal .input_section {
     -moz-columns: 3;
          columns: 3;
-    gap: 10px;
-  }
-  body .Journal .input_section .input_area {
-    margin-bottom: 10px;
   }
   body .Journal .input_section .input_area .hidden_flex .hidden_img {
     gap: 0.5rem;

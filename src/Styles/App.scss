@@ -421,8 +421,6 @@ body {
 
         &:hover {
           background: none;
-          // box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.3),
-          //   1px 1px 2px rgb(0, 0, 0, 0.3) inset;
         }
 
         .hidden_flex {
@@ -494,24 +492,21 @@ body {
     }
     .Journal .input_section {
       columns: 2;
-      gap: 20px;
+      gap: 10px;
 
-      .input_area {
-        margin-bottom: 20px;
-        .hidden_flex {
-          .hidden_img {
-            gap: 0.3rem;
+      .input_area .hidden_flex {
+        .hidden_img {
+          gap: 0.3rem;
 
-            span {
-              width: 0.8rem;
-              height: 0.8rem;
-            }
+          span {
+            width: 0.8rem;
+            height: 0.8rem;
           }
+        }
 
-          button {
-            padding: 0.1rem 0.3rem;
-            font-size: 0.5rem;
-          }
+        button {
+          padding: 0.1rem 0.3rem;
+          font-size: 0.5rem;
         }
       }
     }
@@ -584,18 +579,13 @@ body {
 
     .Journal .input_section {
       columns: 3;
-      gap: 10px;
 
-      .input_area {
-        margin-bottom: 10px;
+      .input_area .hidden_flex .hidden_img {
+        gap: 0.5rem;
 
-        .hidden_flex .hidden_img {
-          gap: 0.5rem;
-
-          span {
-            width: 1rem;
-            height: 1rem;
-          }
+        span {
+          width: 1rem;
+          height: 1rem;
         }
       }
 
