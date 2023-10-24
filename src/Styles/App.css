@@ -127,7 +127,6 @@ body .Journal {
   transition: all 0.5s;
 }
 body .Journal .input_section {
-  grid-column-gap: 10px;
   width: 90%;
   margin: 0 auto;
   padding: 105px 0 50px 0;
@@ -295,10 +294,41 @@ body .Note div .button button {
 }
 body .Note div .button button a {
   text-decoration: none;
-  color: #fff;
+  color: #e6dede;
 }
 body .Note div .button button:hover {
   background: rgb(235, 76, 105);
+}
+body .invalid-page {
+  background: #fff;
+  height: 100vh;
+  color: #ff244c;
+  text-align: center;
+  padding-top: 5rem;
+}
+body .invalid-page h1 {
+  font-size: 5rem;
+  line-height: 110px;
+}
+body .invalid-page h1 span {
+  font-size: 8rem;
+}
+body .invalid-page p {
+  font-size: 1rem;
+  margin-left: 3rem;
+  font-family: "roboto";
+  color: #282727;
+}
+body .invalid-page a {
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid #ff224a;
+  color: #282727;
+  font-size: 0.8rem;
+  margin: 1rem 8rem 0 0;
+  padding: 0.3rem;
+  border-radius: 15px 15px 0 15px;
+  font-family: roboto;
 }
 
 .light-mode {
@@ -388,6 +418,10 @@ body .Note div .button button:hover {
   body .Journal .input_section {
     -moz-columns: 2;
          columns: 2;
+    gap: 20px;
+  }
+  body .Journal .input_section .input_area {
+    margin-bottom: 20px;
   }
   body .Journal .input_section .input_area .hidden_flex .hidden_img {
     gap: 0.3rem;
@@ -451,6 +485,10 @@ body .Note div .button button:hover {
   body .Journal .input_section {
     -moz-columns: 3;
          columns: 3;
+    gap: 10px;
+  }
+  body .Journal .input_section .input_area {
+    margin-bottom: 10px;
   }
   body .Journal .input_section .input_area .hidden_flex .hidden_img {
     gap: 0.5rem;
@@ -462,6 +500,20 @@ body .Note div .button button:hover {
   body .Journal .input_section button {
     padding: 0.1rem 0.4rem;
     font-size: 0.6rem;
+  }
+  body .invalid-page h1 {
+    font-size: 7rem;
+    line-height: 150px;
+  }
+  body .invalid-page h1 span {
+    font-size: 10rem;
+  }
+  body .invalid-page p {
+    margin-left: 7rem;
+  }
+  body .invalid-page a {
+    margin: 1rem 6rem 0 0;
+    padding: 0.5rem;
   }
 }
 @media screen and (min-width: 900px) {

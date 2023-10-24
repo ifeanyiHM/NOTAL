@@ -147,7 +147,6 @@ body {
     transition: all 0.5s;
 
     .input_section {
-      grid-column-gap: 10px;
       width: 90%;
       margin: 0 auto;
       padding: 105px 0 50px 0;
@@ -337,7 +336,7 @@ body {
 
           a {
             text-decoration: none;
-            color: #fff;
+            color: #e6dede;
           }
 
           &:hover {
@@ -345,6 +344,42 @@ body {
           }
         }
       }
+    }
+  }
+
+  .invalid-page {
+    background: #fff;
+    height: 100vh;
+    color: #ff244c;
+    text-align: center;
+    padding-top: 5rem;
+
+    h1 {
+      font-size: 5rem;
+      line-height: 110px;
+
+      span {
+        font-size: 8rem;
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      margin-left: 3rem;
+      font-family: "roboto";
+      color: #282727;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid #ff224a;
+      color: #282727;
+      font-size: 0.8rem;
+      margin: 1rem 8rem 0 0;
+      padding: 0.3rem;
+      border-radius: 15px 15px 0 15px;
+      font-family: roboto;
     }
   }
 }
@@ -459,20 +494,24 @@ body {
     }
     .Journal .input_section {
       columns: 2;
+      gap: 20px;
 
-      .input_area .hidden_flex {
-        .hidden_img {
-          gap: 0.3rem;
+      .input_area {
+        margin-bottom: 20px;
+        .hidden_flex {
+          .hidden_img {
+            gap: 0.3rem;
 
-          span {
-            width: 0.8rem;
-            height: 0.8rem;
+            span {
+              width: 0.8rem;
+              height: 0.8rem;
+            }
           }
-        }
 
-        button {
-          padding: 0.1rem 0.3rem;
-          font-size: 0.5rem;
+          button {
+            padding: 0.1rem 0.3rem;
+            font-size: 0.5rem;
+          }
         }
       }
     }
@@ -545,19 +584,44 @@ body {
 
     .Journal .input_section {
       columns: 3;
+      gap: 10px;
 
-      .input_area .hidden_flex .hidden_img {
-        gap: 0.5rem;
+      .input_area {
+        margin-bottom: 10px;
 
-        span {
-          width: 1rem;
-          height: 1rem;
+        .hidden_flex .hidden_img {
+          gap: 0.5rem;
+
+          span {
+            width: 1rem;
+            height: 1rem;
+          }
         }
       }
 
       button {
         padding: 0.1rem 0.4rem;
         font-size: 0.6rem;
+      }
+    }
+
+    .invalid-page {
+      h1 {
+        font-size: 7rem;
+        line-height: 150px;
+
+        span {
+          font-size: 10rem;
+        }
+      }
+
+      p {
+        margin-left: 7rem;
+      }
+
+      a {
+        margin: 1rem 6rem 0 0;
+        padding: 0.5rem;
       }
     }
   }
