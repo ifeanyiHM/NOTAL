@@ -27,8 +27,9 @@ const reducer = (state, action) => {
 const NoteContext = createContext();
 
 function NoteProvider({ children }) {
-  const [journal, setJournal] = useBrowserStorage(jour);
+  const [journal] = useBrowserStorage(jour);
   const [selectedNote, setSelectedNote] = useBrowserStorage(null);
+  const [sortedJournal, setSortedJournal] = useBrowserStorage([...journal]);
 
   const [{ open, searchNote }, dispatch] = useReducer(reducer, initialState);
 
@@ -42,22 +43,48 @@ function NoteProvider({ children }) {
     dispatch({ type: "open" });
   };
 
+  const handleSortAsc = () => {
+    const sorted = journal
+      .slice()
+      .sort((a, b) => a.title.localeCompare(b.title));
+    console.log(sorted);
+    setSortedJournal(sorted);
+  };
+
+  const handleSortDesc = () => {
+    const sorted = journal
+      .slice()
+      .sort((a, b) => b.title.localeCompare(a.title));
+    console.log(sorted);
+    setSortedJournal(sorted);
+  };
+  const handleSortInput = () => {
+    const sorted = journal;
+
+    console.log(sorted);
+    setSortedJournal(sorted);
+  };
+
   //search a particular note
   const searchedJournal =
     searchNote.length > 0
-      ? journal.filter((journ) =>
+      ? sortedJournal.filter((journ) =>
           `${journ.title} ${journ.body}`
             .toLowerCase()
             .includes(searchNote.toLowerCase())
         )
-      : journal;
+      : sortedJournal;
 
   const deleteJournal = (id) => {
-    setJournal((jo) => jo.filter((jot) => jot.id !== id));
+    setSortedJournal((jo) => jo.filter((jot) => jot.id !== id));
+  };
+
+  const deleteAllJournal = () => {
+    setSortedJournal([]);
   };
 
   const addJournal = (note) => {
-    setJournal([note, ...journal]);
+    setSortedJournal([note, ...journal]);
   };
 
   function handleSelection(note) {
@@ -70,9 +97,13 @@ function NoteProvider({ children }) {
         handleClick,
         open,
         searchNote,
+        onSortAsc: handleSortAsc,
+        onSortDesc: handleSortDesc,
+        onInputSort: handleSortInput,
         dispatch,
         journal: searchedJournal,
         onDeleteJournal: deleteJournal,
+        onClearJournal: deleteAllJournal,
         onSelection: handleSelection,
         selectedNote,
         onAddJournal: addJournal,

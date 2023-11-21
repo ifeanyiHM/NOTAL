@@ -1,12 +1,17 @@
-import { Link } from "react-router-dom";
 import { EachNote } from "./EachNote";
 import { useNote } from "../context/NoteContext";
 import Navbar from "../components/Navbar";
 import SearchJournal from "../components/SearchJournal";
+import Empty from "./Empty";
+import Button from "./Button";
+import Settings from "../components/Settings";
 
 //Overall Journal UI
 const Journal = () => {
   const { journal } = useNote();
+
+  if (!journal.length) return <Empty />;
+
   return (
     <>
       <Navbar>
@@ -20,9 +25,9 @@ const Journal = () => {
           ))}
         </div>
 
-        <div className="add_journal">
-          <Link to="create">+</Link>
-        </div>
+        <Settings />
+
+        <Button journal={journal} />
       </div>
     </>
   );

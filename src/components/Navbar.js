@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
-import { useNote } from "../context/NoteContext";
 
 const Navbar = ({ children }) => {
-  const { open, handleClick } = useNote();
-
   return (
     <nav>
       <Link to="/">
@@ -12,7 +9,7 @@ const Navbar = ({ children }) => {
 
       {children}
 
-      <div onClick={handleClick}>{open ? <span>☀</span> : <span>🌘</span>}</div>
+      <div>📖</div>
     </nav>
   );
 };
