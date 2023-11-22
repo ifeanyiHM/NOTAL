@@ -1,9 +1,9 @@
-import { createContext, useEffect, useReducer, useState } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import useBrowserStorage from "../hook/useBrowserStorage";
 import { jour } from "../data/Data";
 import { useContext } from "react";
 
-const initialState = { open: true, searchNote: "" };
+const initialState = { open: true, searchNote: "", empty: false };
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -19,6 +19,12 @@ const reducer = (state, action) => {
         searchNote: action.payload,
       };
 
+    case "empty":
+      return {
+        ...state,
+        empty: action.payload,
+      };
+
     default:
       break;
   }
@@ -27,12 +33,14 @@ const reducer = (state, action) => {
 const NoteContext = createContext();
 
 function NoteProvider({ children }) {
-  const [journal] = useBrowserStorage(jour);
+  const [journal, setJournal] = useBrowserStorage(jour);
   const [selectedNote, setSelectedNote] = useBrowserStorage(null);
   const [sortedJournal, setSortedJournal] = useBrowserStorage([...journal]);
 
-  const [{ open, searchNote }, dispatch] = useReducer(reducer, initialState);
-  const [empty, setEmpty] = useState(false);
+  const [{ open, searchNote, empty }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   //Toggle light and dark mode
   useEffect(() => {
@@ -79,8 +87,9 @@ function NoteProvider({ children }) {
   };
 
   const deleteAllJournal = () => {
+    setJournal([]);
     setSortedJournal([]);
-    setEmpty(true);
+    dispatch({ type: "empty", payload: !empty });
   };
 
   const addJournal = (note) => {
