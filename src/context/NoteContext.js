@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 import useBrowserStorage from "../hook/useBrowserStorage";
 import { jour } from "../data/Data";
 import { useContext } from "react";
@@ -32,6 +32,7 @@ function NoteProvider({ children }) {
   const [sortedJournal, setSortedJournal] = useBrowserStorage([...journal]);
 
   const [{ open, searchNote }, dispatch] = useReducer(reducer, initialState);
+  const [empty, setEmpty] = useState(false);
 
   //Toggle light and dark mode
   useEffect(() => {
@@ -43,11 +44,11 @@ function NoteProvider({ children }) {
     dispatch({ type: "open" });
   };
 
+  //sort journal by title
   const handleSortAsc = () => {
     const sorted = journal
       .slice()
       .sort((a, b) => a.title.localeCompare(b.title));
-    console.log(sorted);
     setSortedJournal(sorted);
   };
 
@@ -55,13 +56,11 @@ function NoteProvider({ children }) {
     const sorted = journal
       .slice()
       .sort((a, b) => b.title.localeCompare(a.title));
-    console.log(sorted);
     setSortedJournal(sorted);
   };
+
   const handleSortInput = () => {
     const sorted = journal;
-
-    console.log(sorted);
     setSortedJournal(sorted);
   };
 
@@ -81,6 +80,7 @@ function NoteProvider({ children }) {
 
   const deleteAllJournal = () => {
     setSortedJournal([]);
+    setEmpty(true);
   };
 
   const addJournal = (note) => {
@@ -94,6 +94,7 @@ function NoteProvider({ children }) {
   return (
     <NoteContext.Provider
       value={{
+        empty,
         handleClick,
         open,
         searchNote,

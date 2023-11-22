@@ -1,11 +1,10 @@
 import Button from "./Button";
 
-function Empty() {
+function Empty({ children }) {
   return (
     <>
-      <div className="empty">
-        Ready to start journaling? ✍🏾 Click the button below! 👇🏾
-      </div>
+      <div className="empty">{children}</div>
+
       <Button />
     </>
   );
