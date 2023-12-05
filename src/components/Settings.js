@@ -4,12 +4,14 @@ import { MdLightMode, MdDarkMode, MdDelete } from "react-icons/md";
 import { FaSortAlphaUp, FaSortAlphaUpAlt } from "react-icons/fa";
 import { RiMenu4Fill } from "react-icons/ri";
 import { useEffect, useRef, useState } from "react";
+import DeleteAllJournal from "./DeleteAllJournal";
 
 function Settings() {
   const {
     open,
+    openModal,
+    handleModal,
     handleClick,
-    onClearJournal,
     onSortAsc,
     onSortDesc,
     onInputSort,
@@ -31,6 +33,12 @@ function Settings() {
     };
   }, []);
 
+  useEffect(() => {
+    openModal
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto");
+  }, [openModal]);
+
   return (
     <>
       <span
@@ -47,15 +55,20 @@ function Settings() {
         <ul className="settings-items">
           <li onClick={handleClick}>
             {open ? (
-              <span className="icon">
-                <MdLightMode />
-              </span>
+              <>
+                <span className="icon">
+                  <MdLightMode />
+                </span>
+                <span>light mode</span>
+              </>
             ) : (
-              <span className="icon">
-                <MdDarkMode />
-              </span>
+              <>
+                <span className="icon">
+                  <MdDarkMode />
+                </span>
+                <span>light mode</span>
+              </>
             )}{" "}
-            <span>light mode</span>
           </li>
           <li onClick={onSortAsc}>
             <span className="icon">
@@ -75,7 +88,7 @@ function Settings() {
             </span>
             <span>sort by input</span>
           </li>
-          <li onClick={onClearJournal}>
+          <li onClick={handleModal}>
             <span className="icon">
               <MdDelete />
             </span>
@@ -83,6 +96,7 @@ function Settings() {
           </li>
         </ul>
       )}
+      {openModal && <DeleteAllJournal />}
     </>
   );
 }

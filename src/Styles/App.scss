@@ -251,7 +251,7 @@ body {
       border-radius: 10px 10px 0 10px;
       opacity: 0;
       transition: all 0.8s 0.2s;
-      z-index: 999;
+      z-index: 990;
     }
 
     a {
@@ -264,7 +264,7 @@ body {
       font-size: 2em;
       text-decoration: none;
       color: #fff;
-      z-index: 999;
+      z-index: 990;
     }
 
     a:hover + span {
@@ -280,7 +280,7 @@ body {
     color: #fff;
     transition: all 0.4s;
     cursor: pointer;
-    z-index: 999;
+    z-index: 990;
   }
 
   .disp {
@@ -294,7 +294,7 @@ body {
     border-radius: 10px 10px 10px 10px;
     opacity: 0;
     transition: all 0.8s 0.2s;
-    z-index: 999;
+    z-index: 990;
   }
 
   .settings:hover + .disp {
@@ -311,7 +311,7 @@ body {
     padding: 0.5rem;
     border-radius: 13px;
     transition: all 0.4s;
-    z-index: 999;
+    z-index: 990;
 
     li {
       display: flex;
@@ -331,6 +331,71 @@ body {
       &:hover {
         background: #eee6e6;
         border-radius: 5px;
+      }
+    }
+  }
+
+  .clear-all {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+
+    .container {
+      background: rgb(14, 14, 14);
+      width: 80%;
+      padding: 1.5rem;
+      border-radius: 10px;
+
+      h1 {
+        font-size: 1rem;
+      }
+
+      span {
+        cursor: pointer;
+      }
+
+      .spread {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      p {
+        padding: 0.5rem 0;
+        font-size: 0.9rem;
+      }
+
+      .action {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: end;
+
+        button {
+          padding: 0.5rem 0.9rem;
+          border-radius: 5px;
+          font-size: 0.7rem;
+          cursor: pointer;
+
+          &:first-child {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+          }
+
+          &:last-child {
+            background: red;
+            color: #fff;
+            border: none;
+            padding: 0.55rem 0.9rem;
+          }
+        }
       }
     }
   }
@@ -541,6 +606,28 @@ body {
     color: #272424;
   }
 
+  .clear-all {
+    background: rgb(0, 0, 0, 0.4);
+
+    .container {
+      background: #d1cbcb;
+      color: #474545;
+
+      h1 {
+        font-weight: 500;
+      }
+
+      .action {
+        button {
+          &:first-child {
+            color: #474545;
+            border: 1px solid #555252;
+          }
+        }
+      }
+    }
+  }
+
   .Create {
     box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2),
       2px 2px 2px rgb(0, 0, 0, 0.2) inset;
@@ -634,6 +721,12 @@ body {
         font-size: 0.8rem;
       }
     }
+
+    .clear-all {
+      .container {
+        width: 65%;
+      }
+    }
   }
 }
 @media screen and (min-width: 700px) {
@@ -701,6 +794,12 @@ body {
       }
     }
 
+    .clear-all {
+      .container {
+        width: 50%;
+      }
+    }
+
     .invalid-page {
       h1 {
         font-size: 7rem;
@@ -737,6 +836,12 @@ body {
         gap: 0.3rem;
       }
     }
+
+    .clear-all {
+      .container {
+        width: 40%;
+      }
+    }
   }
 }
 @media screen and (min-width: 1100px) {
@@ -747,6 +852,12 @@ body {
 
     .Journal .input_section {
       columns: 5;
+    }
+
+    .clear-all {
+      .container {
+        width: 30%;
+      }
     }
   }
 }
@@ -778,6 +889,12 @@ body {
 
     .Journal .input_section {
       columns: 7;
+    }
+
+    .clear-all {
+      .container {
+        width: 20%;
+      }
     }
   }
 }

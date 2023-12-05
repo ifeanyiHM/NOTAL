@@ -3,7 +3,12 @@ import useBrowserStorage from "../hook/useBrowserStorage";
 import { jour } from "../data/Data";
 import { useContext } from "react";
 
-const initialState = { open: true, searchNote: "", empty: false };
+const initialState = {
+  open: true,
+  searchNote: "",
+  empty: false,
+  openModal: false,
+};
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -25,6 +30,12 @@ const reducer = (state, action) => {
         empty: action.payload,
       };
 
+    case "openModal":
+      return {
+        ...state,
+        openModal: !state.openModal,
+      };
+
     default:
       break;
   }
@@ -37,7 +48,7 @@ function NoteProvider({ children }) {
   const [selectedNote, setSelectedNote] = useBrowserStorage(null);
   const [sortedJournal, setSortedJournal] = useBrowserStorage([...journal]);
 
-  const [{ open, searchNote, empty }, dispatch] = useReducer(
+  const [{ open, searchNote, empty, openModal }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -50,6 +61,10 @@ function NoteProvider({ children }) {
 
   const handleClick = () => {
     dispatch({ type: "open" });
+  };
+
+  const handleModal = () => {
+    dispatch({ type: "openModal" });
   };
 
   //sort journal by title
@@ -106,6 +121,8 @@ function NoteProvider({ children }) {
         empty,
         handleClick,
         open,
+        handleModal,
+        openModal,
         searchNote,
         onSortAsc: handleSortAsc,
         onSortDesc: handleSortDesc,
