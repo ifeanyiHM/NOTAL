@@ -59,7 +59,9 @@ function NoteProvider({ children }) {
     body.classList.toggle("light-mode", !open);
   }, [open]);
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.stopPropagation();
+
     dispatch({ type: "open" });
   };
 

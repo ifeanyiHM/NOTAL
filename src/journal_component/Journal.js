@@ -9,10 +9,14 @@ import Settings from "../components/Settings";
 //Overall Journal UI
 const Journal = () => {
   const { journal, empty } = useNote();
-
   if (empty)
     return (
-      <Empty>Ready to start journaling? ✍🏾 Click the button below! 👇🏾</Empty>
+      <Empty>
+        <div>
+          <h1>Ready to start journaling? </h1>
+          <p>Click the button below! 👇🏾</p>
+        </div>
+      </Empty>
     );
 
   return (
@@ -23,8 +27,13 @@ const Journal = () => {
 
       {!journal.length ? (
         <Empty>
-          No matching notes found.<br></br> Try a different search term or click
-          the button below to create a new note 📖.
+          <div>
+            <h1>No matching notes found.</h1>
+            <p>
+              Try a different search term or click the button below to create a
+              new note 📖.
+            </p>
+          </div>
         </Empty>
       ) : (
         <div className="Journal">

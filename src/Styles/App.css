@@ -348,7 +348,34 @@ body .empty {
   align-items: center;
   height: 100vh;
   font-family: "roboto";
-  font-size: 1.5rem;
+  text-align: center;
+}
+body .empty div {
+  background: rgb(14, 14, 14);
+  color: #f4f4f4;
+  width: 80%;
+  padding: 2rem;
+}
+body .empty div h1 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+body .empty div p {
+  font-size: 0.9rem;
+}
+body .empty div button {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #ff224a;
+  font-family: "Saira Condensed", sans-serif;
+  font-size: 0.8em;
+  color: #fff;
+  margin-top: 1rem;
+}
+body .empty div button:hover {
+  background: rgb(235, 76, 105);
 }
 body .Create {
   width: 90%;
@@ -510,7 +537,7 @@ body .invalid-page a {
 .light-mode .Journal .input_section .input_area2 {
   box-shadow: none;
 }
-.light-mode .Journal .add_journal {
+.light-mode .add_journal {
   font-family: "Saira Condensed", sans-serif;
 }
 .light-mode .settings {
@@ -529,6 +556,10 @@ body .invalid-page a {
 .light-mode .clear-all .container .action button:first-child {
   color: #474545;
   border: 1px solid #555252;
+}
+.light-mode .empty div {
+  background: #d1cbcb;
+  color: #474545;
 }
 .light-mode .Create {
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2), 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
