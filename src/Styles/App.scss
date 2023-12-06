@@ -215,7 +215,7 @@ body {
 
             .icon {
               font-size: 1.2rem;
-              color: #ff244c;
+              color: #d12a2a;
               cursor: pointer;
             }
           }
@@ -431,13 +431,44 @@ body {
         background: #ff224a;
         font-family: "Saira Condensed", sans-serif;
         font-size: 0.8em;
-        // text-decoration: none;
         color: #fff;
         margin-top: 1rem;
 
         &:hover {
           background: rgb(235, 76, 105);
         }
+      }
+    }
+  }
+
+  .notification {
+    position: fixed;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    transition: all 0.4s;
+
+    div {
+      background: #c1baba;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      color: #000;
+      font-size: 0.8rem;
+      font-family: "roboto", sans-serif;
+      white-space: nowrap;
+      transition: 0.4s;
+
+      .exit {
+        background: #d12a2a;
+        color: #fff;
+        padding: 0.05rem;
+        border-radius: 120%;
+        font-size: 0.8rem;
+        cursor: pointer;
       }
     }
   }

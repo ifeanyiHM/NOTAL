@@ -1,7 +1,7 @@
 import { useNote } from "../context/NoteContext";
 import { HiTrash } from "react-icons/hi2";
 
-export const ColorPallet = ({ color, onStyleNote, journ }) => {
+export const ColorPallet = ({ color, onStyleNote, journ, notification }) => {
   const { onDeleteJournal } = useNote();
 
   return (
@@ -25,7 +25,12 @@ export const ColorPallet = ({ color, onStyleNote, journ }) => {
         })}
       </div>
 
-      <button onClick={() => onDeleteJournal(journ.id)}>
+      <button
+        onClick={() => {
+          onDeleteJournal(journ.id);
+          notification();
+        }}
+      >
         <HiTrash className="icon" />
       </button>
     </div>

@@ -189,7 +189,7 @@ body .Journal .input_section .input_area .hidden_flex button {
 }
 body .Journal .input_section .input_area .hidden_flex button .icon {
   font-size: 1.2rem;
-  color: #ff244c;
+  color: #d12a2a;
   cursor: pointer;
 }
 body .Journal .input_section .input_area:hover {
@@ -376,6 +376,35 @@ body .empty div button {
 }
 body .empty div button:hover {
   background: rgb(235, 76, 105);
+}
+body .notification {
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  transition: all 0.4s;
+}
+body .notification div {
+  background: #c1baba;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: #000;
+  font-size: 0.8rem;
+  font-family: "roboto", sans-serif;
+  white-space: nowrap;
+  transition: 0.4s;
+}
+body .notification div .exit {
+  background: #d12a2a;
+  color: #fff;
+  padding: 0.05rem;
+  border-radius: 120%;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
 body .Create {
   width: 90%;

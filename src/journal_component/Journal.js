@@ -1,14 +1,19 @@
-import { EachNote } from "./EachNote";
 import { useNote } from "../context/NoteContext";
+import { useState } from "react";
+
+import { EachNote } from "./EachNote";
 import Navbar from "../components/Navbar";
 import SearchJournal from "../components/SearchJournal";
 import Empty from "./Empty";
 import Button from "./Button";
 import Settings from "../components/Settings";
+import Notification from "./Notification";
 
 //Overall Journal UI
 const Journal = () => {
   const { journal, empty } = useNote();
+  const [showNotification, setShowNotification] = useState(false);
+
   if (empty)
     return (
       <Empty>
@@ -18,6 +23,13 @@ const Journal = () => {
         </div>
       </Empty>
     );
+
+  const hideNotification = () => {
+    setShowNotification(true);
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 5000);
+  };
 
   return (
     <>
@@ -39,9 +51,17 @@ const Journal = () => {
         <div className="Journal">
           <div className="input_section">
             {journal.map((journ) => (
-              <EachNote key={journ.id} journ={journ} />
+              <EachNote
+                key={journ.id}
+                journ={journ}
+                notification={hideNotification}
+              />
             ))}
           </div>
+
+          {showNotification && (
+            <Notification setShowNotification={setShowNotification} />
+          )}
 
           <Settings />
 

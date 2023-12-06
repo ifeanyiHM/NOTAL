@@ -6,7 +6,7 @@ import { color } from "../data/Data";
 import { ColorPallet } from "./ColorPallet";
 
 //Each note or journal taken
-export const EachNote = ({ journ }) => {
+export const EachNote = ({ journ, notification }) => {
   const { onSelection } = useNote();
 
   const [bgColor, setBgColor] = useState("");
@@ -41,7 +41,12 @@ export const EachNote = ({ journ }) => {
         </p>
       </Link>
 
-      <ColorPallet color={color} onStyleNote={handleNoteStyle} journ={journ} />
+      <ColorPallet
+        color={color}
+        onStyleNote={handleNoteStyle}
+        journ={journ}
+        notification={notification}
+      />
     </div>
   );
 };
