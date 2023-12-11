@@ -107,10 +107,12 @@ function NoteProvider({ children }) {
     setJournal([]);
     setSortedJournal([]);
     dispatch({ type: "empty", payload: !empty });
+    handleModal();
   };
 
   const addJournal = (note) => {
-    setSortedJournal([note, ...journal]);
+    setSortedJournal([note, ...sortedJournal]);
+    dispatch({ type: "empty", payload: !empty ? empty : !empty });
   };
 
   function handleSelection(note) {

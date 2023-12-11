@@ -4,7 +4,7 @@ import { useNote } from "../context/NoteContext";
 import Navbar from "./Navbar";
 
 const Create = () => {
-  const { onAddJournal, empty, dispatch } = useNote();
+  const { onAddJournal } = useNote();
 
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -20,7 +20,6 @@ const Create = () => {
     const note = { title, body, id };
 
     onAddJournal(note);
-    dispatch({ type: "empty", payload: !empty });
     navigation("/");
   };
 
