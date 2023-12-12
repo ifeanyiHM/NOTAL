@@ -323,7 +323,7 @@ body .clear-all .container p {
 body .clear-all .container .action {
   display: flex;
   gap: 0.5rem;
-  justify-content: end;
+  justify-content: flex-end;
 }
 body .clear-all .container .action button {
   padding: 0.5rem 0.9rem;

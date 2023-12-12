@@ -66,7 +66,7 @@ function Settings() {
                 <span className="icon">
                   <MdDarkMode />
                 </span>
-                <span>light mode</span>
+                <span>dark mode</span>
               </>
             )}{" "}
           </li>
